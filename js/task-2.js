@@ -1,3 +1,5 @@
+'use strict';
+
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
@@ -24,3 +26,14 @@ const images = [
     alt: "Lighthouse Coast Sea",
   }
 ];
+
+const gallery = document.querySelector(".gallery");
+
+const galleryMarkup = images
+  .map(
+    ({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}" width="360"></li>`
+  )
+  .join("");
+
+gallery.insertAdjacentHTML("beforeend", galleryMarkup);
